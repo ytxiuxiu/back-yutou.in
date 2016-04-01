@@ -1,4 +1,4 @@
-package in.yutou.site.exception;
+package in.yutou.site.common.exception;
 
 public class BusinessException extends RuntimeException {
 

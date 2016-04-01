@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import in.yutou.site.common.auth.dao.UserDao;
-import in.yutou.site.common.domain.User;
+import in.yutou.site.common.auth.domain.User;
 
-@Service("userService")
+@Service
 public class UserService {
   
   @Autowired

@@ -3,10 +3,12 @@ package in.yutou.site.knowledge.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import in.yutou.site.knowledge.domain.Edition;
 import in.yutou.site.knowledge.domain.Node;
 
-
+@Repository
 public interface NodeDao {
 
   public Node getNodeById(String nodeId);

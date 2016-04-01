@@ -21,10 +21,10 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 
 import in.yutou.site.common.auth.GoogleAuth;
+import in.yutou.site.common.auth.domain.User;
 import in.yutou.site.common.auth.service.UserService;
 import in.yutou.site.common.domain.Response;
-import in.yutou.site.common.domain.User;
-import in.yutou.site.exception.BusinessException;
+import in.yutou.site.common.exception.BusinessException;
 
 @Controller
 @RequestMapping("auth")
@@ -52,26 +52,20 @@ public class AuthController {
     Response response = new Response("user");
     
     // Verify Google ID Token
-    GoogleIdToken googleIdToken = googleAuth.verifyGooleTokenId(idToken);
-    if (googleIdToken != null) {
-      User user = googleAuth.getUserInfoFromGoogle(googleIdToken);
+    User user = googleAuth.getUser(idToken);
       
-      // Check and get/save user info in database
-      User _user = userService.getUserById(user.getUserId());
-      
-      if (_user == null) {
-        // if not register
-        userService.register(user);
-        _user = userService.getUserById(user.getUserId());
-      } else {
-        userService.login(_user);
-      }
-
-      response.setObject(_user);
-      
+    // Check and get/save user info in database
+    User _user = userService.getUserById(user.getUserId());
+    
+    if (_user == null) {
+      // if not register
+      userService.register(user);
+      _user = userService.getUserById(user.getUserId());
     } else {
-      throw new BusinessException("Invalid ID Token");
+      userService.login(_user);
     }
+
+    response.setObject(_user);
     
     return response.getResponse();
     

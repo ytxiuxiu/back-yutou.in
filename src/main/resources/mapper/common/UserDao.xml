@@ -12,26 +12,46 @@
     <result column="picture_url" property="pictureUrl"/>
     <result column="registered_at" property="registeredAt"/>
     <result column="last_loged_in_at" property="lastLogedInAt"/>
+    <association property="group" javaType="group">
+      <id column="group_id" property="groupId"/>
+      <result column="group_name" property="name"/>
+      <collection property="actions" ofType="action">
+        <id column="action_id" property="actionId"/>
+        <result column="action_name" property="name"/>
+      </collection>
+    </association>
   </resultMap>
 
   <select id="getUserById" parameterType="string" resultMap="basicResultMap">
-    SELECT <include refid="userColumns" />
-    FROM users
-    WHERE user_id = #{userId}
+    SELECT <include refid="userColumns"/>, <include refid="groupColumns"/>, <include refid="actionColumns"></include>
+    FROM pc_users u
+    INNER JOIN pc_groups g ON g.group_id = u.group_id
+    LEFT JOIN pc_group_action ga ON ga.group_id = u.group_id
+    LEFT JOIN pc_actions a ON a.action_id = ga.action_id
+    WHERE u.user_id = #{userId}
   </select>
 
   <insert id="insert" parameterType="user">
-    INSERT INTO users (<include refid="userColumns"/>) 
+    INSERT INTO pc_users (<include refid="basicColumns"/>) 
     VALUES (#{userId}, #{email}, #{familyName}, #{givenName}, #{pictureUrl}, #{registeredAt}, #{lastLogedInAt})
   </insert>
   
   <update id="login" parameterType="user">
-    UPDATE users
+    UPDATE pc_users
     SET last_loged_in_at = #{lastLogedInAt}
     WHERE user_id = #{userId}
   </update>
   
-  <sql id="userColumns">
+  <sql id="basicColumns">
     user_id, email, family_name, given_name, picture_url, registered_at, last_loged_in_at
+  </sql>
+  <sql id="userColumns">
+    u.user_id, u.email, u.family_name, u.given_name, u.picture_url, u.registered_at, u.last_loged_in_at
+  </sql>
+  <sql id="groupColumns">
+    g.group_id, g.group_name
+  </sql>
+  <sql id="actionColumns">
+    a.action_id, a.action_name, a.action_description
   </sql>
 </mapper>

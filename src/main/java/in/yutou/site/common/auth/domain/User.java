@@ -1,10 +1,12 @@
-package in.yutou.site.common.domain;
+package in.yutou.site.common.auth.domain;
 
 import java.util.Date;
 
 public class User {
   
   private String userId;
+  
+  private Group group;
   
   private String email;
   
@@ -38,6 +40,14 @@ public class User {
 
   public void setUserId(String userId) {
     this.userId = userId;
+  }
+
+  public Group getGroup() {
+    return group;
+  }
+
+  public void setGroup(Group group) {
+    this.group = group;
   }
 
   public String getEmail() {
@@ -90,8 +100,9 @@ public class User {
 
   @Override
   public String toString() {
-    return "User [userId=" + userId + ", email=" + email + ", familyName=" + familyName + ", givenName=" + givenName
-        + ", pictureUrl=" + pictureUrl + ", registeredAt=" + registeredAt + ", lastLogedInAt=" + lastLogedInAt + "]";
+    return "User [userId=" + userId + ", group=" + group + ", email=" + email + ", familyName=" + familyName
+        + ", givenName=" + givenName + ", pictureUrl=" + pictureUrl + ", registeredAt=" + registeredAt
+        + ", lastLogedInAt=" + lastLogedInAt + "]";
   }
 
 }

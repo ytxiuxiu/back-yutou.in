@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import in.yutou.site.common.auth.GoogleAuth;
+import in.yutou.site.common.auth.powercontrol.PowerControl;
 import in.yutou.site.common.auth.service.UserService;
 import in.yutou.site.common.domain.Response;
 import in.yutou.site.knowledge.domain.Edition;
@@ -41,9 +42,10 @@ public class KnowledgeController {
    * @throws GeneralSecurityException
    * @throws IOException
    */
+  @PowerControl({"knowledge.map.edit"})
   @RequestMapping(value="map/edition/add", method=RequestMethod.POST)
   public @ResponseBody Map<String, Object> addEdition(String idToken, Edition edition, Node node) throws GeneralSecurityException, IOException {
-    Response response = new Response("result");
+    Response response = new Response("node");
     
     edition.setUser(userService.getUserById(googleAuth.getUserId(idToken)));
     
@@ -61,9 +63,12 @@ public class KnowledgeController {
     // switch to this edition
     knowledgeService.switchCurrentEdition(node.getNodeId(), edition.getEditionId());
     
+    response.setObject(edition);
+    
     return response.getResponse();
   }
 
+  @PowerControl({"knowledge.map.view"})
   @RequestMapping(value="map/{nodeId}", method=RequestMethod.GET)
   public @ResponseBody Map<String, Object> getMap(@PathVariable("nodeId") String nodeId) {
     Response response = new Response("map");

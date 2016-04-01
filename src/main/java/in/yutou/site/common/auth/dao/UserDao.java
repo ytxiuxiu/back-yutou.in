@@ -1,7 +1,10 @@
 package in.yutou.site.common.auth.dao;
 
-import in.yutou.site.common.domain.User;
+import org.springframework.stereotype.Repository;
 
+import in.yutou.site.common.auth.domain.User;
+
+@Repository
 public interface UserDao {
   
   public User getUserById(String userId);

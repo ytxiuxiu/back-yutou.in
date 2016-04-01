@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import in.yutou.site.common.domain.User;
+import in.yutou.site.common.auth.domain.User;
 
 public class Edition {
   

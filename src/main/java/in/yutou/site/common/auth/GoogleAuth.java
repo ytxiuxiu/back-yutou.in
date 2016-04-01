@@ -17,8 +17,8 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 
-import in.yutou.site.common.domain.User;
-import in.yutou.site.exception.BusinessException;
+import in.yutou.site.common.auth.domain.User;
+import in.yutou.site.common.exception.BusinessException;
 
 @Component
 public class GoogleAuth {
@@ -26,16 +26,20 @@ public class GoogleAuth {
   @Value("${google.api.clientId}")
   private String clientId;
   
-  public String getUserId(String idToken) throws GeneralSecurityException, IOException {
+  public User getUser(String idToken) throws GeneralSecurityException, IOException {
     GoogleIdToken googleIdToken = verifyGooleTokenId(idToken);
     if (googleIdToken != null) {
       User user = getUserInfoFromGoogle(googleIdToken);
       
-      return user.getUserId();
+      return user;
       
     } else {
       throw new BusinessException("Invalid ID Token");
     }
+  }
+  
+  public String getUserId(String idToken) throws GeneralSecurityException, IOException {
+    return getUser(idToken).getUserId();
   }
   
   /**

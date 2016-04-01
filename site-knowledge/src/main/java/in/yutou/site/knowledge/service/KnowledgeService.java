@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.yutou.site.exception.BusinessException;
+import in.yutou.site.common.exception.BusinessException;
 import in.yutou.site.knowledge.dao.NodeDao;
 import in.yutou.site.knowledge.domain.Edition;
 import in.yutou.site.knowledge.domain.Node;

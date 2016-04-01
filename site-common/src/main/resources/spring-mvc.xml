@@ -36,6 +36,19 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
   
+  <!-- power control -->
+  <bean id="powerControlAspect" class="in.yutou.site.common.auth.powercontrol.PowerControlAspect"></bean>
+  <aop:config>
+    <aop:aspect ref="powerControlAspect">
+      <aop:around method="doAround"
+        pointcut="execution(* in.yutou.site..controller.*.*(..))" />
+    </aop:aspect>
+  </aop:config>
+  
+  <!-- exception -->
+  <bean id="exceptionResolver" class="in.yutou.site.common.exception.ExceptionResolver">
+  </bean>
+  
   <!-- db -->
   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
     destroy-method="close">
@@ -51,7 +64,7 @@
   
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
-    <property name="typeAliasesPackage" value="in.yutou.site.common.domain,in.yutou.site.knowledge.domain"/>
+    <property name="typeAliasesPackage" value="in.yutou.site.common.auth.domain,in.yutou.site.knowledge.domain"/>
     <property name="mapperLocations">
       <array>
         <value>classpath*:mapper/**/*.xml</value>
@@ -86,6 +99,6 @@
   </tx:advice>
   
   <aop:config>
-    <aop:advisor advice-ref="txAdvice" pointcut="execution(* in.yutou.site.common.service..*.*(..))" />
+    <aop:advisor advice-ref="txAdvice" pointcut="execution(* in.yutou.site..service..*.*(..))" />
   </aop:config>
 </beans>
