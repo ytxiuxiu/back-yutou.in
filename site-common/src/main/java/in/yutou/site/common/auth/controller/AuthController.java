@@ -22,6 +22,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 
 import in.yutou.site.common.auth.GoogleAuth;
 import in.yutou.site.common.auth.domain.User;
+import in.yutou.site.common.auth.service.GroupService;
 import in.yutou.site.common.auth.service.UserService;
 import in.yutou.site.common.domain.Response;
 import in.yutou.site.common.exception.BusinessException;
@@ -32,6 +33,9 @@ public class AuthController {
   
   @Autowired
   private UserService userService;
+  
+  @Autowired
+  private GroupService groupService;
   
   @Autowired
   private GoogleAuth googleAuth;
@@ -69,6 +73,17 @@ public class AuthController {
     
     return response.getResponse();
     
+  }
+  
+  @RequestMapping("no-login-user")
+  public @ResponseBody Map<String, Object> getNoLoginUser() {
+    Response response = new Response("user");
+    
+    User user = new User();
+    user.setGroup(groupService.getGroupByName("no-login"));
+    response.setObject(user);
+    
+    return response.getResponse();
   }
   
   
