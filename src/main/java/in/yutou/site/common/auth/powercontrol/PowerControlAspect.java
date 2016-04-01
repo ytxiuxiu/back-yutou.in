@@ -75,18 +75,24 @@ public class PowerControlAspect {
     if (idToken.equals("no-login")) { // handle no login user
       group = groupService.getGroupByName("no-login");
     } else {  // handle login user
-  		User _user = userService.getUserById(googleAuth.getUserId(idToken));
-  		// set user to request attribute, set that controller can get it
-  		request.setAttribute("user", _user);
-  		
-  		// root has supreme power!
-  		if (_user.getGroup().getName().equals("root")) {
-  		  result = proceedingJoinPoint.proceed();
-  		}
-  		group = _user.getGroup();
-  		
-  		logger.debug("[Auth] check power with " + _user);
-  		logger.debug("[Auth] requires: " + requires);
+      try {
+    		User _user = userService.getUserById(googleAuth.getUserId(idToken));
+    		// set user to request attribute, set that controller can get it
+    		request.setAttribute("user", _user);
+    		
+    		// root has supreme power!
+    		if (_user.getGroup().getName().equals("root")) {
+    		  result = proceedingJoinPoint.proceed();
+    		  return result;
+    		}
+    		group = _user.getGroup();
+    		
+    		logger.debug("[Auth] check power with " + _user);
+    		logger.debug("[Auth] requires: " + requires);
+    		
+      } catch (BusinessException e) { // regard invalid idToken as no login
+        group = groupService.getGroupByName("no-login");
+      }
     }
     
 		// check power
