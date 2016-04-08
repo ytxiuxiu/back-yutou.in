@@ -28,6 +28,28 @@
   
   <resultMap id="nodeResultMap" type="node">
     <id column="node_id" property="nodeId"/>
+    <result column="current_edition"/>
+    <association property="currentEdition" javaType="edition">
+      <id column="edition_id" property="editionId"/>
+      <result column="name" property="name"/>
+      <result column="path" property="path"/>
+      <result column="small" property="small"/>
+      <result column="content" property="content"/>
+      <result column="created_at" property="createdAt"/>
+      <result column="deleted" property="deleted"/>
+      <association property="node" javaType="node">
+        <id column="node_id" property="nodeId"/>
+      </association>
+      <association property="user" javaType="user">
+        <id column="user_id" property="userId"/>
+        <result column="email" property="email"/>
+        <result column="family_name" property="familyName"/>
+        <result column="given_name" property="givenName"/>
+        <result column="picture_url" property="pictureUrl"/>
+        <result column="registered_at" property="registeredAt"/>
+        <result column="last_loged_in_at" property="lastLogedInAt"/>
+      </association>
+    </association>
   </resultMap>
   
   <select id="getNodeById" parameterType="string" resultMap="nodeResultMap">

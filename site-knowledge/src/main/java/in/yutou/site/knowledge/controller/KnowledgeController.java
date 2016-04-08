@@ -58,6 +58,10 @@ public class KnowledgeController {
     edition.setNode(_node);
     
     // add edition
+    // update all children's path if the path has been changed
+    System.out.println(_node);
+    Edition _edition = knowledgeService.getEditionById(_node.getCurrentEdition().getEditionId());
+    System.out.println(_edition);
     knowledgeService.addEdition(edition);
     
     // switch to this edition

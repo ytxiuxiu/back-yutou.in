@@ -7,6 +7,9 @@
         <dependent-module archiveName="site-0.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/site/site">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="webget-0.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/webget/webget">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="site-knowledge"/>
         <property name="java-output-path" value="/site-knowledge/target/classes"/>
     </wb-module>
