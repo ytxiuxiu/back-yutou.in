@@ -30,6 +30,22 @@ public interface NodeDao {
   public void insertNewEdition(Edition node);
   
   /**
+   * Add new editions of all child nodes with new path when their parent node have been moved
+   * @param params
+   *  userId: who do this change
+   *  oldParentPath: the path of parent node before move
+   *  newParentPath: the path of parent node after move
+   */
+  public void moveChildrenOfMovedNode(Map<String, String> params);
+  
+  /**
+   * Find all notes whose current edition need to be switched with in one save id
+   * @param saveId
+   * @return
+   */
+  public List<Edition> findAllNodesWhoesCurrentEditionNeedToBeSwitched(String saveId);
+  
+  /**
    * Switch current edition of a node
    * @param params a map contains:
    *  nodeId: switch whose edition

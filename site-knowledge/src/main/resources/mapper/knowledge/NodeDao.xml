@@ -6,6 +6,7 @@
 <mapper namespace="in.yutou.site.knowledge.dao.NodeDao">
   <resultMap id="basicResultMap" type="edition">
     <id column="edition_id" property="editionId"/>
+    <result column="save_id" property="saveId"/>
     <result column="name" property="name"/>
     <result column="path" property="path"/>
     <result column="small" property="small"/>
@@ -14,6 +15,7 @@
     <result column="deleted" property="deleted"/>
     <association property="node" javaType="node">
       <id column="node_id" property="nodeId"/>
+      <id column="node_type" property="nodeType"/>
     </association>
     <association property="user" javaType="user">
       <id column="user_id" property="userId"/>
@@ -31,6 +33,7 @@
     <result column="current_edition"/>
     <association property="currentEdition" javaType="edition">
       <id column="edition_id" property="editionId"/>
+      <result column="save_id" property="saveId"/>
       <result column="name" property="name"/>
       <result column="path" property="path"/>
       <result column="small" property="small"/>
@@ -39,6 +42,7 @@
       <result column="deleted" property="deleted"/>
       <association property="node" javaType="node">
         <id column="node_id" property="nodeId"/>
+        <id column="node_type" property="nodeType"/>
       </association>
       <association property="user" javaType="user">
         <id column="user_id" property="userId"/>
@@ -53,8 +57,10 @@
   </resultMap>
   
   <select id="getNodeById" parameterType="string" resultMap="nodeResultMap">
-    select <include refid="nodeColumns"></include>
+    select <include refid="nodeColumns"></include>,
+      <include refid="editionColumns"></include>
     from kno_nodes n
+      left join kno_node_editions e on (e.edition_id = n.current_edition)
     where n.node_id = #{nodeId}
   </select>
   
@@ -95,14 +101,32 @@
   
   <insert id="insertNode" parameterType="node">
     insert into kno_nodes (<include refid="basicNodeColumns"></include>)
-    values (#{nodeId}, null)
+    values (#{nodeId}, null, #{nodeType})
   </insert>
   
   <insert id="insertNewEdition" parameterType="node">
     insert into kno_node_editions (<include refid="basicColumns"></include>)
-    values (#{editionId}, #{node.nodeId}, #{user.userId}, #{name}, #{path}, #{small}, 
+    values (#{editionId}, #{node.nodeId}, #{saveId}, #{user.userId}, #{name}, #{path}, #{small}, 
       #{content}, now(), #{deleted})
   </insert>
+  
+  <insert id="moveChildrenOfMovedNode" parameterType="map">
+    insert into kno_node_editions
+      select replace(uuid(), '-', '') as edition_id, e.node_id, '${saveId}' as save_id, '${userId}' as user_id,
+        name, replace(e.path, #{oldParentPath}, #{newParentPath}) as path, e.small, e.content, 
+        now(), e.deleted 
+      from kno_nodes n
+        inner join kno_node_editions e on (e.edition_id = n.current_edition)
+      where path like '${oldParentPath}/%';
+  </insert>
+  
+  <select id="findAllNodesWhoesCurrentEditionNeedToBeSwitched" parameterType="string" resultMap="basicResultMap">
+    select <include refid="editionColumns"></include>, 
+      <include refid="nodeColumns"></include>
+    from kno_nodes n
+      inner join kno_node_editions e on (e.node_id = n.node_id)
+    where e.save_id = #{saveId};
+  </select>
   
   <update id="switchCurrentEdition" parameterType="map">
     update kno_nodes
@@ -111,16 +135,16 @@
   </update>
   
   <sql id="basicColumns">
-    edition_id, node_id, user_id, name, path, small, content, created_at, deleted
+    edition_id, node_id, save_id, user_id, name, path, small, content, created_at, deleted
   </sql>
   <sql id="editionColumns">
-    e.edition_id, e.name, e.path, e.small, e.content, e.created_at, e.deleted
+    e.edition_id, e.save_id, e.name, e.path, e.small, e.content, e.created_at, e.deleted
   </sql>
   <sql id="basicNodeColumns">
-    node_id, current_edition
+    node_id, current_edition, node_type
   </sql>
   <sql id="nodeColumns">
-    n.node_id, n.current_edition
+    n.node_id, n.current_edition, node_type
   </sql>
   <sql id="userColumns">
     u.user_id, u.email, u.family_name, u.given_name, u.picture_url, u.registered_at, u.last_loged_in_at

@@ -9,6 +9,10 @@ public class Node {
   
   private Edition currentEdition;
   
+  private String nodeType;
+  
+  private boolean hasChild;
+  
   private List<Edition> editions;
   
   public Node() {
@@ -39,8 +43,25 @@ public class Node {
     this.editions = editions;
   }
 
+  public String getNodeType() {
+    return nodeType;
+  }
+
+  public void setNodeType(String nodeType) {
+    this.nodeType = nodeType;
+  }
+
+  public boolean isHasChild() {
+    return hasChild;
+  }
+
+  public void setHasChild(boolean hasChild) {
+    this.hasChild = hasChild;
+  }
+
   @Override
   public String toString() {
-    return "Node [nodeId=" + nodeId + ", currentEdition=" + currentEdition + ", editions=" + editions + "]";
+    return "Node [nodeId=" + nodeId + ", currentEdition=" + currentEdition + ", nodeType=" + nodeType + ", hasChild="
+        + hasChild + ", editions=" + editions + "]";
   }
 }

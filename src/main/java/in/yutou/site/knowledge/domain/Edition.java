@@ -14,6 +14,8 @@ public class Edition {
   
   private User user;
   
+  private String saveId;
+  
   private String name;
   
   private String path;
@@ -122,11 +124,19 @@ public class Edition {
     this.deleted = deleted;
   }
 
+  public String getSaveId() {
+    return saveId;
+  }
+
+  public void setSaveId(String saveId) {
+    this.saveId = saveId;
+  }
+
   @Override
   public String toString() {
-    return "Edition [editionId=" + editionId + ", node=" + node + ", user=" + user + ", name=" + name + ", path=" + path
-        + ", parent=" + parent + ", children=" + children + ", small=" + small + ", content=" + content + ", createdAt="
-        + createdAt + ", deleted=" + deleted + "]";
+    return "Edition [editionId=" + editionId + ", node=" + node + ", user=" + user + ", saveId=" + saveId + ", name="
+        + name + ", path=" + path + ", parent=" + parent + ", children=" + children + ", small=" + small + ", content="
+        + content + ", createdAt=" + createdAt + ", deleted=" + deleted + "]";
   }
   
 }
