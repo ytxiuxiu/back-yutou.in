@@ -39,9 +39,6 @@ public class KnowledgeService {
       String nodePath = node.getPath();
       String nodeParentPath = nodePath.substring(0, nodePath.lastIndexOf("/"));
       
-      System.out.println(node.getName());
-      System.out.println(node.getPath());
-      
       boolean isSplited = false;
       if (node.getNode().getNodeType().equals("spliter") && node.getPath().length() != path.length() + 32 + 1) {
         isSplited = true;

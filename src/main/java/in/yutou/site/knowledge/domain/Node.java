@@ -19,6 +19,8 @@ public class Node {
   
   private int viewsNumber;
   
+  private Node linkTo;
+  
   public Node() {
     editions = new ArrayList<Edition>();
     views = new ArrayList<NodeView>();
@@ -80,9 +82,18 @@ public class Node {
     this.viewsNumber = viewsNumber;
   }
 
+  public Node getLinkTo() {
+    return linkTo;
+  }
+
+  public void setLinkTo(Node linkTo) {
+    this.linkTo = linkTo;
+  }
+
   @Override
   public String toString() {
     return "Node [nodeId=" + nodeId + ", currentEdition=" + currentEdition + ", nodeType=" + nodeType + ", hasChild="
-        + hasChild + ", editions=" + editions + ", views=" + views + ", viewsNumber=" + viewsNumber + "]";
+        + hasChild + ", editions=" + editions + ", views=" + views + ", viewsNumber=" + viewsNumber + ", linkTo="
+        + linkTo + "]";
   }
 }
