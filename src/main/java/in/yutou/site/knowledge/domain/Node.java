@@ -15,8 +15,13 @@ public class Node {
   
   private List<Edition> editions;
   
+  private List<NodeView> views;
+  
+  private int viewsNumber;
+  
   public Node() {
     editions = new ArrayList<Edition>();
+    views = new ArrayList<NodeView>();
   }
 
   public String getNodeId() {
@@ -59,9 +64,25 @@ public class Node {
     this.hasChild = hasChild;
   }
 
+  public List<NodeView> getViews() {
+    return views;
+  }
+
+  public void setViews(List<NodeView> views) {
+    this.views = views;
+  }
+
+  public int getViewsNumber() {
+    return viewsNumber;
+  }
+
+  public void setViewsNumber(int viewsNumber) {
+    this.viewsNumber = viewsNumber;
+  }
+
   @Override
   public String toString() {
     return "Node [nodeId=" + nodeId + ", currentEdition=" + currentEdition + ", nodeType=" + nodeType + ", hasChild="
-        + hasChild + ", editions=" + editions + "]";
+        + hasChild + ", editions=" + editions + ", views=" + views + ", viewsNumber=" + viewsNumber + "]";
   }
 }

@@ -5,12 +5,17 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import in.yutou.site.common.auth.GoogleAuth;
 import in.yutou.site.common.auth.domain.User;
@@ -101,4 +106,38 @@ public class KnowledgeController {
     return response.getResponse();
   }
   
+  @PowerControl({"knowledge.map.view"})
+  @RequestMapping(value="node/{nodeId}", method=RequestMethod.GET)
+  public @ResponseBody Map<String, Object> getNode(String idToken, @PathVariable("nodeId") String nodeId, HttpServletRequest request) throws GeneralSecurityException, IOException {
+    Response response = new Response("node");
+    
+    Node node = knowledgeService.getNodeById(nodeId);
+    
+    // add view
+    User user = null;
+    try {
+      user = userService.getUserById(googleAuth.getUserId(idToken));
+    } catch (Exception e) {
+    }
+    String userId = user == null ? null : user.getUserId();
+    
+    String ip = request.getHeader("X-Real-IP");
+    ip = ip != null ? ip : request.getRemoteAddr();
+    try {
+      knowledgeService.addNewNodeView(userId, nodeId, ip);
+    } catch (DuplicateKeyException e) {
+    }
+    
+    node.setViewsNumber(knowledgeService.getViewNumber(nodeId));
+    response.setObject(node);
+    
+    return response.getResponse();
+  }
+
+  @RequestMapping(value="test-active", method=RequestMethod.GET)
+  public @ResponseBody Map<String, Object> testActive() {
+    Response response = new Response("status");
+    response.setObject("ok");
+    return response.getResponse();
+  }
 }

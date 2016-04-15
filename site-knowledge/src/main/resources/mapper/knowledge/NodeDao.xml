@@ -74,7 +74,7 @@
     where
       e.path like '${path}%'
       and e.deleted = 0
-    order by e.path desc
+    order by e.path desc, length(e.path) desc, name asc
   </select>
   
   <select id="getCurrentEditionByNodeId" parameterType="string" resultMap="basicResultMap">
@@ -99,6 +99,13 @@
       e.edition_id = #{editionId}
   </select>
   
+  <select id="getViewNumber" parameterType="string" resultType="int">
+    select count(view_id)
+    from kno_node_views
+    where view_node = #{nodeId} 
+  </select>
+  
+  
   <insert id="insertNode" parameterType="node">
     insert into kno_nodes (<include refid="basicNodeColumns"></include>)
     values (#{nodeId}, null, #{nodeType})
@@ -120,6 +127,11 @@
       where path like '${oldParentPath}/%';
   </insert>
   
+  <insert id="addNewNodeView" parameterType="map">
+    insert into kno_node_views (<include refid="basicNodeViewColumns"></include>)
+    values (replace(uuid(), '-', ''), #{userId}, #{nodeId}, #{ip}, now());
+  </insert>
+  
   <select id="findAllNodesWhoesCurrentEditionNeedToBeSwitched" parameterType="string" resultMap="basicResultMap">
     select <include refid="editionColumns"></include>, 
       <include refid="nodeColumns"></include>
@@ -127,6 +139,7 @@
       inner join kno_node_editions e on (e.node_id = n.node_id)
     where e.save_id = #{saveId};
   </select>
+  
   
   <update id="switchCurrentEdition" parameterType="map">
     update kno_nodes
@@ -148,5 +161,11 @@
   </sql>
   <sql id="userColumns">
     u.user_id, u.email, u.family_name, u.given_name, u.picture_url, u.registered_at, u.last_loged_in_at
+  </sql>
+  <sql id="basicNodeViewColumns">
+    view_id, view_user, view_node, view_ip, viewed_at
+  </sql>
+  <sql id="nodeViewColumns">
+    v.view_id, v.view_user, v.view_node, v.view_ip, v.viewed_at
   </sql>
 </mapper>

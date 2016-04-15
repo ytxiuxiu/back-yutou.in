@@ -39,6 +39,9 @@ public class KnowledgeService {
       String nodePath = node.getPath();
       String nodeParentPath = nodePath.substring(0, nodePath.lastIndexOf("/"));
       
+      System.out.println(node.getName());
+      System.out.println(node.getPath());
+      
       boolean isSplited = false;
       if (node.getNode().getNodeType().equals("spliter") && node.getPath().length() != path.length() + 32 + 1) {
         isSplited = true;
@@ -76,12 +79,26 @@ public class KnowledgeService {
     return nodeDao.selectLatestEditionsOfChildrenNodesByPath(params);
   }
   
+  public int getViewNumber(String nodeId) {
+    return nodeDao.getViewNumber(nodeId);
+  }
+  
+  
   public void addNode(Node node) {
     nodeDao.insertNode(node);
   }
   
   public void addEdition(Edition node) {
     nodeDao.insertNewEdition(node);
+  }
+  
+  public void addNewNodeView(String userId, String nodeId, String ip) {
+    Map<String, String> params = new HashMap<String, String>();
+    params.put("userId", userId);
+    params.put("nodeId", nodeId);
+    params.put("ip", ip);
+    
+    nodeDao.addNewNodeView(params);
   }
   
   public void moveChildrenOfMovedNode(String userId, String oldParentPath, String newParentPath, String saveId) {

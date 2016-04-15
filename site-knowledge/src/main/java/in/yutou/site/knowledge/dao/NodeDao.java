@@ -25,9 +25,13 @@ public interface NodeDao {
    */
   public List<Edition> selectLatestEditionsOfChildrenNodesByPath(Map<String, String> params);
   
+  public int getViewNumber(String nodeId);
+  
   public void insertNode(Node node);
   
   public void insertNewEdition(Edition node);
+  
+  public void addNewNodeView(Map<String, String> parmas);
   
   /**
    * Add new editions of all child nodes with new path when their parent node have been moved
