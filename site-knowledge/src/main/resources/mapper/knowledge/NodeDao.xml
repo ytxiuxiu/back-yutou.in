@@ -11,6 +11,8 @@
     <result column="path" property="path"/>
     <result column="small" property="small"/>
     <result column="content" property="content"/>
+    <result column="status" property="status"/>
+    <result column="priority" property="priority"/>
     <result column="created_at" property="createdAt"/>
     <result column="deleted" property="deleted"/>
     <association property="node" javaType="node">
@@ -38,6 +40,8 @@
       <result column="path" property="path"/>
       <result column="small" property="small"/>
       <result column="content" property="content"/>
+      <result column="status" property="status"/>
+      <result column="priority" property="priority"/>
       <result column="created_at" property="createdAt"/>
       <result column="deleted" property="deleted"/>
       <association property="node" javaType="node">
@@ -114,7 +118,7 @@
   <insert id="insertNewEdition" parameterType="node">
     insert into kno_node_editions (<include refid="basicColumns"></include>)
     values (#{editionId}, #{node.nodeId}, #{saveId}, #{user.userId}, #{name}, #{path}, #{small}, 
-      #{content}, now(), #{deleted})
+      #{content}, #{status}, #{priority}, now(), #{deleted})
   </insert>
   
   <insert id="moveChildrenOfMovedNode" parameterType="map">
@@ -148,10 +152,10 @@
   </update>
   
   <sql id="basicColumns">
-    edition_id, node_id, save_id, user_id, name, path, small, content, created_at, deleted
+    edition_id, node_id, save_id, user_id, name, path, small, content, status, priority, created_at, deleted
   </sql>
   <sql id="editionColumns">
-    e.edition_id, e.save_id, e.name, e.path, e.small, e.content, e.created_at, e.deleted
+    e.edition_id, e.save_id, e.name, e.path, e.small, e.content, e.status, e.priority, e.created_at, e.deleted
   </sql>
   <sql id="basicNodeColumns">
     node_id, current_edition, node_type

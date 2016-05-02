@@ -28,6 +28,10 @@ public class Edition {
   
   private String content;
   
+  private String status;
+  
+  private int priority;
+  
   private Date createdAt;
   
   private boolean deleted;
@@ -132,11 +136,28 @@ public class Edition {
     this.saveId = saveId;
   }
 
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public int getPriority() {
+    return priority;
+  }
+
+  public void setPriority(int priority) {
+    this.priority = priority;
+  }
+
   @Override
   public String toString() {
     return "Edition [editionId=" + editionId + ", node=" + node + ", user=" + user + ", saveId=" + saveId + ", name="
         + name + ", path=" + path + ", parent=" + parent + ", children=" + children + ", small=" + small + ", content="
-        + content + ", createdAt=" + createdAt + ", deleted=" + deleted + "]";
+        + content + ", status=" + status + ", priority=" + priority + ", createdAt=" + createdAt + ", deleted="
+        + deleted + "]";
   }
   
 }

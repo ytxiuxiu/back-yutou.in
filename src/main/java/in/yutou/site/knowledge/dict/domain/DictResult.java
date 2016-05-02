@@ -7,7 +7,13 @@ public class DictResult {
   
   private String keyword;
   
-  private String audio;
+  private String audioBritish;
+  
+  private String symbolBritish;
+  
+  private String audioAmerican;
+  
+  private String symbolAmerican;
   
   private List<ExplanationGroup> explanationGroups;
   
@@ -23,12 +29,36 @@ public class DictResult {
     this.keyword = keyword;
   }
 
-  public String getAudio() {
-    return audio;
+  public String getAudioBritish() {
+    return audioBritish;
   }
 
-  public void setAudio(String audio) {
-    this.audio = audio;
+  public void setAudioBritish(String audioBritish) {
+    this.audioBritish = audioBritish;
+  }
+
+  public String getSymbolBritish() {
+    return symbolBritish;
+  }
+
+  public void setSymbolBritish(String symbolBritish) {
+    this.symbolBritish = symbolBritish;
+  }
+
+  public String getAudioAmerican() {
+    return audioAmerican;
+  }
+
+  public void setAudioAmerican(String audioAmerican) {
+    this.audioAmerican = audioAmerican;
+  }
+
+  public String getSymbolAmerican() {
+    return symbolAmerican;
+  }
+
+  public void setSymbolAmerican(String symbolAmerican) {
+    this.symbolAmerican = symbolAmerican;
   }
 
   public List<ExplanationGroup> getExplanationGroups() {
@@ -41,7 +71,9 @@ public class DictResult {
 
   @Override
   public String toString() {
-    return "DictResult [keyword=" + keyword + ", audio=" + audio + ", explanationGroups=" + explanationGroups + "]";
+    return "DictResult [keyword=" + keyword + ", audioBritish=" + audioBritish + ", symbolBritish=" + symbolBritish
+        + ", audioAmerican=" + audioAmerican + ", symbolAmerican=" + symbolAmerican + ", explanationGroups="
+        + explanationGroups + "]";
   }
 
 }

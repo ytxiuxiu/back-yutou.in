@@ -51,8 +51,12 @@ public class DictionaryController {
     
     // basic
     result.setKeyword(doc.select("h1.keyword").get(0).text());
-    if (doc.select("div.base-speak > i").size() >= 1) {
-      result.setAudio(doc.select("div.base-speak > i").get(0).attr("onmouseover").
+    if (doc.select("div.base-speak > i").size() == 2) {
+      result.setSymbolBritish(doc.select("div.base-speak > span").get(0).text().replace("英", "").trim());
+      result.setAudioBritish(doc.select("div.base-speak > i").get(0).attr("onmouseover").
+          replace("displayAudio('", "").replace("')", ""));
+      result.setSymbolAmerican(doc.select("div.base-speak > span").get(1).text().replace("美", "").trim());
+      result.setAudioAmerican(doc.select("div.base-speak > i").get(1).attr("onmouseover").
           replace("displayAudio('", "").replace("')", ""));
     }
     
