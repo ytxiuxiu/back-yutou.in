@@ -68,7 +68,7 @@
   
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
-    <property name="typeAliasesPackage" value="in.yutou.site.common.auth.domain,in.yutou.site.knowledge.domain"/>
+    <property name="typeAliasesPackage" value="in.yutou.site.common.auth.domain,in.yutou.site.knowledge.domain,in.yutou.site.knowledge.dict.domain"/>
     <property name="mapperLocations">
       <array>
         <value>classpath*:mapper/**/*.xml</value>

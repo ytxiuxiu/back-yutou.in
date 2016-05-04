@@ -124,7 +124,7 @@
   <insert id="moveChildrenOfMovedNode" parameterType="map">
     insert into kno_node_editions
       select replace(uuid(), '-', '') as edition_id, e.node_id, '${saveId}' as save_id, '${userId}' as user_id,
-        name, replace(e.path, #{oldParentPath}, #{newParentPath}) as path, e.small, e.content, 
+        name, replace(e.path, #{oldParentPath}, #{newParentPath}) as path, e.small, e.content, e.status, e.priority,
         now(), e.deleted 
       from kno_nodes n
         inner join kno_node_editions e on (e.edition_id = n.current_edition)

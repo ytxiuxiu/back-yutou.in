@@ -15,6 +15,8 @@ public class DictResult {
   
   private String symbolAmerican;
   
+  private List<WordFrequency> frequencies;
+  
   private List<ExplanationGroup> explanationGroups;
   
   public DictResult() {
@@ -69,11 +71,20 @@ public class DictResult {
     this.explanationGroups = explanationGroups;
   }
 
+  public List<WordFrequency> getFrequencies() {
+    return frequencies;
+  }
+
+  public void setFrequencies(List<WordFrequency> frequencies) {
+    this.frequencies = frequencies;
+  }
+
   @Override
   public String toString() {
     return "DictResult [keyword=" + keyword + ", audioBritish=" + audioBritish + ", symbolBritish=" + symbolBritish
-        + ", audioAmerican=" + audioAmerican + ", symbolAmerican=" + symbolAmerican + ", explanationGroups="
-        + explanationGroups + "]";
+        + ", audioAmerican=" + audioAmerican + ", symbolAmerican=" + symbolAmerican + ", frequencies=" + frequencies
+        + ", explanationGroups=" + explanationGroups + "]";
   }
+
 
 }
