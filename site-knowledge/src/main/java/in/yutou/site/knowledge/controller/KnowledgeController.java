@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
-import in.yutou.site.common.auth.GoogleAuth;
 import in.yutou.site.common.auth.domain.User;
 import in.yutou.site.common.auth.powercontrol.PowerControl;
 import in.yutou.site.common.auth.service.UserService;
@@ -37,8 +34,6 @@ public class KnowledgeController {
   @Autowired
   private UserService userService;
   
-  @Autowired
-  private GoogleAuth googleAuth;
   
   /**
    * Update node
@@ -52,10 +47,10 @@ public class KnowledgeController {
    */
   @PowerControl({"knowledge.map.edit"})
   @RequestMapping(value="map/edition/add", method=RequestMethod.POST)
-  public @ResponseBody Map<String, Object> addEdition(String idToken, Edition edition, Node node) throws GeneralSecurityException, IOException {
+  public @ResponseBody Map<String, Object> addEdition(String loginToken, Edition edition, Node node) throws GeneralSecurityException, IOException {
     Response response = new Response("node");
     
-    User user = userService.getUserById(googleAuth.getUserId(idToken));
+    User user = userService.getUserByLoginToken(loginToken);
     edition.setUser(user);
     
     // generate a save id for each saving
@@ -108,7 +103,7 @@ public class KnowledgeController {
   
   @PowerControl({"knowledge.map.view"})
   @RequestMapping(value="node/{nodeId}", method=RequestMethod.GET)
-  public @ResponseBody Map<String, Object> getNode(String idToken, @PathVariable("nodeId") String nodeId, HttpServletRequest request) throws GeneralSecurityException, IOException {
+  public @ResponseBody Map<String, Object> getNode(String loginToken, @PathVariable("nodeId") String nodeId, HttpServletRequest request) throws GeneralSecurityException, IOException {
     Response response = new Response("node");
     
     Node node = knowledgeService.getNodeById(nodeId);
@@ -116,7 +111,7 @@ public class KnowledgeController {
     // add view
     User user = null;
     try {
-      user = userService.getUserById(googleAuth.getUserId(idToken));
+      user = userService.getUserByLoginToken(loginToken);
     } catch (Exception e) {
     }
     String userId = user == null ? null : user.getUserId();

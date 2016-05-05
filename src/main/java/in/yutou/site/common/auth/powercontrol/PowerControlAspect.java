@@ -13,10 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.sun.javafx.binding.StringFormatter;
-
-import in.yutou.site.common.auth.GoogleAuth;
-import in.yutou.site.common.auth.dao.UserDao;
 import in.yutou.site.common.auth.domain.Action;
 import in.yutou.site.common.auth.domain.Group;
 import in.yutou.site.common.auth.domain.User;
@@ -32,10 +28,7 @@ public class PowerControlAspect {
   
   @Autowired
   private GroupService groupService;
-  
-  @Autowired
-  private GoogleAuth googleAuth;
-  
+
   protected static Logger logger = Logger.getRootLogger();
   
 	public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -69,14 +62,14 @@ public class PowerControlAspect {
     ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     HttpServletRequest request = requestAttributes.getRequest();
     
-    String idToken = request.getParameter("idToken");
+    String loginToken = request.getParameter("loginToken");
     
     Group group = null;
-    if (idToken.equals("no-login")) { // handle no login user
+    if (loginToken.equals("no-login")) { // handle no login user
       group = groupService.getGroupByName("no-login");
     } else {  // handle login user
       try {
-    		User _user = userService.getUserById(googleAuth.getUserId(idToken));
+    		User _user = userService.getUserByLoginToken(loginToken);
     		// set user to request attribute, set that controller can get it
     		request.setAttribute("user", _user);
     		

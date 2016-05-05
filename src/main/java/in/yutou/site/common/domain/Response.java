@@ -16,6 +16,8 @@ public class Response {
   
   private Object object;
   
+  private Map<String, Object> objects;
+  
   public Response() {
     
   }
@@ -31,13 +33,13 @@ public class Response {
    */
   public Response(String objectName) {
     this.objectName = objectName;
+    this.objects = new HashMap<String, Object>();
   }
   
   public Map<String, Object> getResponse() {
-    Map<String, Object> response = new HashMap<String, Object>();
-    response.put("error", error == null ? null : error.getMessage());
-    response.put(objectName, object);
-    return response;
+    objects.put("error", error == null ? null : error.getMessage());
+    objects.put(objectName, object);
+    return objects;
   }
 
   public Exception getError() {
@@ -62,6 +64,14 @@ public class Response {
 
   public void setObject(Object object) {
     this.object = object;
+  }
+
+  public Map<String, Object> getObjects() {
+    return objects;
+  }
+
+  public void setObjects(Map<String, Object> objects) {
+    this.objects = objects;
   }
 
 }

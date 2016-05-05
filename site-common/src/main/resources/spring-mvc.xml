@@ -49,6 +49,13 @@
   <bean id="exceptionResolver" class="in.yutou.site.common.exception.ExceptionResolver">
   </bean>
   
+  <!-- auth -->
+  <bean class="in.yutou.site.common.auth.AuthAES">
+    <property name="key" value="${auth.key}" />
+    <property name="initVector" value="${auth.initVector}" />
+    <property name="prefix" value="${auth.prefix}" />
+  </bean>
+  
   <!-- db -->
   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
     destroy-method="close">
