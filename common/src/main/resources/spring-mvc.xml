@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://mybatis.org/schema/mybatis-spring
+    http://mybatis.org/schema/mybatis-spring.xsd">
+    
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location">
+      <value>classpath:application.properties</value>
+    </property>
+  </bean>
+	
+	<mvc:annotation-driven />
+	<context:component-scan base-package="in.yutou.site" />
+	<mvc:default-servlet-handler />
+
+	<!-- view -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+  
+  <!-- power control -->
+  <bean id="powerControlAspect" class="in.yutou.site.common.auth.powercontrol.PowerControlAspect"></bean>
+  <aop:config>
+    <aop:aspect ref="powerControlAspect">
+      <aop:around method="doAround"
+        pointcut="execution(* in.yutou.site..controller.*.*(..))" />
+    </aop:aspect>
+  </aop:config>
+  
+  <!-- exception -->
+  <bean id="exceptionResolver" class="in.yutou.site.common.exception.ExceptionResolver">
+  </bean>
+  
+  <!-- auth -->
+  <bean class="in.yutou.site.common.auth.AuthAES">
+    <property name="key" value="${auth.key}" />
+    <property name="initVector" value="${auth.initVector}" />
+    <property name="prefix" value="${auth.prefix}" />
+  </bean>
+  
+  <!-- db -->
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    destroy-method="close">
+    <property name="driverClass" value="${jdbc.driverClass}" />
+    <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+    <property name="user" value="${jdbc.user}" />
+    <property name="password" value="${jdbc.password}" />
+    <property name="maxPoolSize" value="50" />
+    <property name="minPoolSize" value="10" />
+    <property name="maxStatements" value="100" />
+    <property name="testConnectionOnCheckout" value="true" />
+  </bean>
+  
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="typeAliasesPackage" value="in.yutou.site.common.auth.domain,in.yutou.site.knowledge.domain"/>
+    <property name="mapperLocations">
+      <array>
+        <value>classpath*:mapper/**/*.xml</value>
+      </array>
+    </property>
+  </bean>
+  
+  <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <constructor-arg index="0" ref="sqlSessionFactory" />
+  </bean>
+  
+  <mybatis:scan base-package="in.yutou.site.**.dao" />
+  
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
+  
+  <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+      <tx:method name="save*" propagation="REQUIRED" />
+      <tx:method name="add*" propagation="REQUIRED" />
+      <tx:method name="update*" propagation="REQUIRED" />
+      <tx:method name="change*" propagation="REQUIRED" />
+      <tx:method name="modify*" propagation="REQUIRED" />
+      <tx:method name="switch*" propagation="REQUIRED" />
+      <tx:method name="delete*" propagation="REQUIRED" />
+      <tx:method name="remove*" propagation="REQUIRED" />
+      <tx:method name="get*" read-only="true" />
+      <tx:method name="select*" read-only="true" />
+      <tx:method name="find*" read-only="true" />
+    </tx:attributes>
+  </tx:advice>
+  
+  <aop:config>
+    <aop:advisor advice-ref="txAdvice" pointcut="execution(* in.yutou.site..service..*.*(..))" />
+  </aop:config>
+</beans>

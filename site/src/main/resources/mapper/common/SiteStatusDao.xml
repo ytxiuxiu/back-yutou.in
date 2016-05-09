@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="in.yutou.site.common.dao.SiteStatusDao">
+  <select id="getAllProperties" parameterType="string" resultType="map">
+    SELECT <include refid="basicColumns"/>
+    FROM site_status
+  </select>
+  
+  <sql id="basicColumns">
+    name, value
+  </sql>
+</mapper>

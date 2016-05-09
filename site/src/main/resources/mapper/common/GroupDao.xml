@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="in.yutou.site.common.auth.dao.GroupDao">
+  <resultMap id="basicResultMap" type="group">
+    <id column="group_id" property="groupId"/>
+    <result column="group_name" property="name"/>
+    <collection property="actions" ofType="action">
+      <id column="action_id" property="actionId"/>
+      <result column="action_name" property="name"/>
+    </collection>
+  </resultMap>
+
+  <select id="getGroupById" parameterType="string" resultMap="basicResultMap">
+    SELECT <include refid="groupColumns"/>, <include refid="actionColumns"></include>
+    FROM pc_groups g
+    LEFT JOIN pc_group_action ga ON ga.group_id = g.group_id
+    LEFT JOIN pc_actions a ON a.action_id = ga.action_id
+    WHERE g.group_id = #{groupId}
+  </select>
+  
+  <select id="getGroupByName" parameterType="string" resultMap="basicResultMap">
+    SELECT <include refid="groupColumns"/>, <include refid="actionColumns"></include>
+    FROM pc_groups g
+    LEFT JOIN pc_group_action ga ON ga.group_id = g.group_id
+    LEFT JOIN pc_actions a ON a.action_id = ga.action_id
+    WHERE g.group_name = #{groupName}
+  </select>
+
+  <sql id="groupColumns">
+    g.group_id, g.group_name
+  </sql>
+  <sql id="actionColumns">
+    a.action_id, a.action_name, a.action_description
+  </sql>
+</mapper>
