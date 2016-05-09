@@ -1,0 +1,6 @@
+jdbc.driverClass=com.mysql.jdbc.Driver
+jdbc.jdbcUrl=jdbc:mysql://localhost:3306/site
+jdbc.user=root
+jdbc.password=root
+
+google.api.clientId=xxx.apps.googleusercontent.com

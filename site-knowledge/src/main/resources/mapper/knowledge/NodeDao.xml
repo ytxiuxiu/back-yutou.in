@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="in.yutou.site.knowledge.dao.NodeDao">
+  <resultMap id="basicResultMap" type="edition">
+    <id column="edition_id" property="editionId"/>
+    <result column="name" property="name"/>
+    <result column="path" property="path"/>
+    <result column="small" property="small"/>
+    <result column="content" property="content"/>
+    <result column="created_at" property="createdAt"/>
+    <result column="deleted" property="deleted"/>
+    <association property="node" javaType="node">
+      <id column="node_id" property="nodeId"/>
+    </association>
+    <association property="user" javaType="user">
+      <id column="user_id" property="userId"/>
+      <result column="email" property="email"/>
+      <result column="family_name" property="familyName"/>
+      <result column="given_name" property="givenName"/>
+      <result column="picture_url" property="pictureUrl"/>
+      <result column="registered_at" property="registeredAt"/>
+      <result column="last_loged_in_at" property="lastLogedInAt"/>
+    </association>
+  </resultMap>
+  
+  <resultMap id="nodeResultMap" type="node">
+    <id column="node_id" property="nodeId"/>
+  </resultMap>
+  
+  <select id="getNodeById" parameterType="string" resultMap="nodeResultMap">
+    select <include refid="nodeColumns"></include>
+    from kno_nodes n
+    where n.node_id = #{nodeId}
+  </select>
+  
+  <select id="selectLatestEditionsOfChildrenNodesByPath" parameterType="map" resultMap="basicResultMap">
+    select <include refid="editionColumns"></include>, 
+      <include refid="nodeColumns"></include>,
+      <include refid="userColumns"></include>
+    from kno_node_editions e
+      inner join kno_nodes n on (n.current_edition = e.edition_id)
+      inner join pc_users u on (u.user_id = e.user_id)
+    where
+      e.path like '${path}%'
+      and e.deleted = 0
+    order by e.path desc
+  </select>
+  
+  <select id="getCurrentEditionByNodeId" parameterType="string" resultMap="basicResultMap">
+    select <include refid="editionColumns"></include>, 
+      <include refid="nodeColumns"></include>,
+      <include refid="userColumns"></include>
+    from kno_node_editions e
+      inner join kno_nodes n on (n.current_edition = e.edition_id)
+      inner join pc_users u on (u.user_id = e.user_id)
+    where
+      e.node_id = #{nodeId}
+  </select>
+  
+  <select id="getEditionById" parameterType="string" resultMap="basicResultMap">
+    select <include refid="editionColumns"></include>, 
+      <include refid="nodeColumns"></include>,
+      <include refid="userColumns"></include>
+    from kno_node_editions e
+      inner join kno_nodes n on (n.current_edition = e.edition_id)
+      inner join pc_users u on (u.user_id = e.user_id)
+    where
+      e.edition_id = #{editionId}
+  </select>
+  
+  <insert id="insertNode" parameterType="node">
+    insert into kno_nodes (<include refid="basicNodeColumns"></include>)
+    values (#{nodeId}, null)
+  </insert>
+  
+  <insert id="insertNewEdition" parameterType="node">
+    insert into kno_node_editions (<include refid="basicColumns"></include>)
+    values (#{editionId}, #{node.nodeId}, #{user.userId}, #{name}, #{path}, #{small}, 
+      #{content}, now(), #{deleted})
+  </insert>
+  
+  <update id="switchCurrentEdition" parameterType="map">
+    update kno_nodes
+    set current_edition = #{editionId}
+    where node_id = #{nodeId}
+  </update>
+  
+  <sql id="basicColumns">
+    edition_id, node_id, user_id, name, path, small, content, created_at, deleted
+  </sql>
+  <sql id="editionColumns">
+    e.edition_id, e.name, e.path, e.small, e.content, e.created_at, e.deleted
+  </sql>
+  <sql id="basicNodeColumns">
+    node_id, current_edition
+  </sql>
+  <sql id="nodeColumns">
+    n.node_id, n.current_edition
+  </sql>
+  <sql id="userColumns">
+    u.user_id, u.email, u.family_name, u.given_name, u.picture_url, u.registered_at, u.last_loged_in_at
+  </sql>
+</mapper>
