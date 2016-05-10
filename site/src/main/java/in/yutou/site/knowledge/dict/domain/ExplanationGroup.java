@@ -5,6 +5,10 @@ import java.util.List;
 
 public class ExplanationGroup {
 
+  private long groupId;
+
+  private DictResult word;
+
   private String groupName;
 
   private String groupNameChinese;
@@ -19,6 +23,14 @@ public class ExplanationGroup {
     this();
     this.groupName = groupName;
     this.groupNameChinese = groupNameChinese;
+  }
+
+  public long getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(long groupId) {
+    this.groupId = groupId;
   }
 
   public String getGroupName() {
@@ -43,6 +55,14 @@ public class ExplanationGroup {
 
   public void setExplanations(List<Explanation> explanations) {
     this.explanations = explanations;
+  }
+
+  public DictResult getWord() {
+    return word;
+  }
+
+  public void setWord(DictResult word) {
+    this.word = word;
   }
 
   @Override

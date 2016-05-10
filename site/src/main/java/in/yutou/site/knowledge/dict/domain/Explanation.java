@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Explanation {
+
+  private long explanationId;
+
+  private ExplanationGroup explanationGroup;
   
   private String partOfSpeech;
 
@@ -22,6 +26,22 @@ public class Explanation {
     this.partOfSpeech = partOfSpeech;
     this.explanation = explanation;
     this.explanationChinese = explanationChinese;
+  }
+
+  public long getExplanationId() {
+    return explanationId;
+  }
+
+  public void setExplanationId(long explanationId) {
+    this.explanationId = explanationId;
+  }
+
+  public ExplanationGroup getExplanationGroup() {
+    return explanationGroup;
+  }
+
+  public void setExplanationGroup(ExplanationGroup explanationGroup) {
+    this.explanationGroup = explanationGroup;
   }
 
   public String getPartOfSpeech() {

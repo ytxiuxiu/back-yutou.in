@@ -25,12 +25,14 @@
         <module name="common" />
         <module name="knowledge" />
         <module name="site" />
+        <module name="tool" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.5" />
       <module name="knowledge" target="1.5" />
       <module name="site" target="1.5" />
+      <module name="tool" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

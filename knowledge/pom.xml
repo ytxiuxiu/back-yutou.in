@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>in.yutou</groupId>
-    <artifactId>site.knowledge</artifactId>
+    <artifactId>site-knowledge</artifactId>
     <version>0.1.0</version>
     <packaging>war</packaging>
 
@@ -13,11 +13,6 @@
         <dependency>
             <groupId>in.yutou</groupId>
             <artifactId>site</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>in.yutou.utils</groupId>
-            <artifactId>webget</artifactId>
             <version>0.1.0</version>
         </dependency>
         <dependency>

@@ -1,10 +1,10 @@
 package in.yutou.site.knowledge.dict.domain;
 
 public class WordFrequency {
+
+  private long frequencyId;
   
   private String wordId;
-  
-  private String word;
   
   private int rank;
   
@@ -12,20 +12,20 @@ public class WordFrequency {
   
   private String partOfSpeech;
 
+  public long getFrequencyId() {
+    return frequencyId;
+  }
+
+  public void setFrequencyId(long frequencyId) {
+    this.frequencyId = frequencyId;
+  }
+
   public String getWordId() {
     return wordId;
   }
 
   public void setWordId(String wordId) {
     this.wordId = wordId;
-  }
-
-  public String getWord() {
-    return word;
-  }
-
-  public void setWord(String word) {
-    this.word = word;
   }
 
   public int getRank() {
@@ -54,7 +54,7 @@ public class WordFrequency {
 
   @Override
   public String toString() {
-    return "WordFrequency [wordId=" + wordId + ", word=" + word + ", rank=" + rank + ", total=" + total
+    return "WordFrequency [wordId=" + wordId + ", rank=" + rank + ", total=" + total
         + ", partOfSpeech=" + partOfSpeech + "]";
   }
 

@@ -4,22 +4,94 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="in.yutou.site.knowledge.dao.DictDao">
-  <resultMap id="basicResultMap" type="wordFrequency">
+  <resultMap id="frequencyResultMap" type="wordFrequency">
     <id column="word_id" property="wordId"/>
-    <result column="word" property="word"/>
     <result column="word_rank" property="rank"/>
     <result column="total" property="total"/>
     <result column="part_of_speech" property="partOfSpeech"/>
   </resultMap>
+
+  <resultMap id="basicResultMap" type="dictResult">
+    <id column="word_id" property="wordId"/>
+    <result column="word" property="keyword"/>
+    <result column="audio_uk" property="audioBritish"/>
+    <result column="symbol_uk" property="symbolBritish"/>
+    <result column="audio_us" property="audioAmerican"/>
+    <result column="symbol_us" property="symbolAmerican"/>
+    <result column="fetched_at" property="fetchedAt"/>
+    <collection property="explanationGroups" javaType="explanationGroup">
+      <id column="group_id" property="groupId"/>
+      <result column="group_name" property="groupName"/>
+      <result column="g.group_name_ch" property="groupNameChinese"/>
+      <collection property="explanations" javaType="explanation">
+        <id column="explanation_id" property="explanationId"/>
+        <result column="part_of_speech" property="partOfSpeech"/>
+        <result column="explanation" property="explanation"/>
+        <result column="explanation_ch" property="explanationChinese"/>
+        <collection property="examples" javaType="example">
+          <id column="example_id" property="exampleId"/>
+          <result column="english" property="english"/>
+          <result column="chinese" property="chinese"/>
+          <result column="audio" property="audio"/>
+        </collection>
+      </collection>
+    </collection>
+  </resultMap>
   
-  <select id="getFrequenciesByWord" parameterType="string" resultMap="basicResultMap">
-    select <include refid="basicColumns"></include>,
+  <select id="getFrequenciesByWord" parameterType="string" resultMap="frequencyResultMap">
+    select <include refid="wordColumns"></include>,
+      <include refid="wordFrequencyColumns"></include>,
       (select count(*) from dict_word_frequencies) as total
-    from dict_word_frequencies
-    where word = #{word}
+    from dict_words w
+      inner join dict_word_frequencies f on (f.word_id = w.word_id)
+    where w.word = #{word}
   </select>
+
+  <select id="findWord" parameterType="string" resultMap="basicResultMap">
+    select <include refid="wordColumns"></include>,
+      g.group_id, g.word_id, g.group_name, g.group_name_ch,
+      exp.explanation_id, exp.group_id, exp.part_of_speech, exp.explanation, exp.explanation_ch,
+      eg.example_id, eg.explanation_id, eg.english, eg.chinese, eg.audio
+    from dict_words w
+      left join dict_word_explanation_groups g on (g.word_id = w.word_id)
+      left join dict_word_explanations exp on (exp.group_id = g.group_id)
+      left join dict_word_examples eg on (eg.explanation_id = exp.explanation_id)
+    where w.word = #{word}
+  </select>
+
+  <insert id="addNewWord" parameterType="dictResult">
+    insert into dict_words (<include refid="basicColumns"></include>)
+    values (#{wordId}, #{keyword}, #{audioBritish}, #{symbolBritish}, #{audioAmerican}, #{symbolAmerican}, now(), null)
+  </insert>
+
+  <insert id="addExplanationGroup" parameterType="explanationGroup">
+    insert into dict_word_explanation_groups (group_id, word_id, group_name, group_name_ch)
+    values (#{groupId}, #{word.wordId}, #{groupName}, #{groupNameChinese})
+  </insert>
+
+  <insert id="addExplanation" parameterType="explanation">
+    insert into dict_word_explanations (explanation_id, group_id, part_of_speech, explanation, explanation_ch)
+    values (#{explanationId}, #{explanationGroup.groupId}, #{partOfSpeech}, #{explanation}, #{explanationChinese})
+  </insert>
+
+  <insert id="addExample" parameterType="example">
+    insert into dict_word_examples (example_id, explanation_id, english, chinese, audio)
+    values (#{exampleId}, #{explanation.explanationId}, #{english}, #{chinese}, #{audio})
+  </insert>
+
+  <update id="updateWord" parameterType="dictResult">
+    update dict_words
+    set audio_uk = #{audioBritish}, symbol_uk = #{symbolBritish}, audio_us = #{audioAmerican}, symbol_us = #{symbolAmerican}, fetched_at = #{fetchedAt}
+    where word_id = #{wordId}
+  </update>
   
   <sql id="basicColumns">
-    word_id, word, word_rank, part_of_speech
+    word_id, word, audio_uk, symbol_uk, audio_us, symbol_us, created_at, fetched_at
+  </sql>
+  <sql id="wordColumns">
+    w.word_id, w.word, w.audio_uk, w.symbol_uk, w.audio_us, w.symbol_us, w.created_at, w.fetched_at
+  </sql>
+  <sql id="wordFrequencyColumns">
+    f.frequency_id, f.word_id, f.part_of_speech, f.word_rank
   </sql>
 </mapper>

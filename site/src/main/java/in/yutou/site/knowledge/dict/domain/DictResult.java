@@ -1,9 +1,12 @@
 package in.yutou.site.knowledge.dict.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DictResult {
+
+  private long wordId;
   
   private String keyword;
   
@@ -18,9 +21,21 @@ public class DictResult {
   private List<WordFrequency> frequencies;
   
   private List<ExplanationGroup> explanationGroups;
+
+  private Date fetchedAt;
+
   
   public DictResult() {
     explanationGroups = new ArrayList<ExplanationGroup>();
+  }
+
+
+  public long getWordId() {
+    return wordId;
+  }
+
+  public void setWordId(long wordId) {
+    this.wordId = wordId;
   }
 
   public String getKeyword() {
@@ -77,6 +92,14 @@ public class DictResult {
 
   public void setFrequencies(List<WordFrequency> frequencies) {
     this.frequencies = frequencies;
+  }
+
+  public Date getFetchedAt() {
+    return fetchedAt;
+  }
+
+  public void setFetchedAt(Date fetchedAt) {
+    this.fetchedAt = fetchedAt;
   }
 
   @Override
