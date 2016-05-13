@@ -1,6 +1,7 @@
 package in.yutou.site.knowledge.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Node {
@@ -18,6 +19,8 @@ public class Node {
   private List<NodeView> views;
   
   private int viewsNumber;
+
+  private Date createdAt;
   
   private Node linkTo;
   
@@ -88,6 +91,14 @@ public class Node {
 
   public void setLinkTo(Node linkTo) {
     this.linkTo = linkTo;
+  }
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
   }
 
   @Override

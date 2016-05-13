@@ -2,28 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ce09e02-b58e-444e-a7ec-7442abfb35c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/src/main/java/in/yutou/site/tool/WordExplanation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/FindingHistory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java" afterPath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml" afterPath="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java" afterPath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java" afterPath="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Example.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Example.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Explanation.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Explanation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/WordFrequency.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/WordFrequency.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.iml" afterPath="$PROJECT_DIR$/common/common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/common_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/common_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/common_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/common_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/knowledge.iml" afterPath="$PROJECT_DIR$/knowledge/knowledge.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/knowledge_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/knowledge_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/knowledge_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/knowledge_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/pom.xml" afterPath="$PROJECT_DIR$/common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/pom.xml" afterPath="$PROJECT_DIR$/knowledge/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/pom.xml" afterPath="$PROJECT_DIR$/site/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/site.iml" afterPath="$PROJECT_DIR$/site/site.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/domain/Node.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/domain/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/NodeDao.xml" afterPath="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/NodeDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/resources/mapper/common/UserDao.xml" afterPath="$PROJECT_DIR$/site/src/main/resources/mapper/common/UserDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/service/UserService.java" afterPath="$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/service/UserService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -50,72 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DictDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="88" selection-start-line="77" selection-start-column="88" selection-end-line="77" selection-end-column="88" />
-              <folding>
-                <marker date="1462859723000" expanded="true" signature="1949:2229" placeholder="select , , (..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2439" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2473" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2510" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2637" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2647" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2721" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2322:2878" placeholder="select , g.g..." />
-                <marker date="1462859723000" expanded="true" signature="2950:3135" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3222:3261" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3222:3384" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3461:3682" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3751:3846" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3751:3925" placeholder="insert into ..." />
-                <marker date="1462859723000" expanded="true" signature="3997:4196" placeholder="update dict_..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExplanationGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-              <folding>
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1283#1284#0" expanded="true" />
-                <element signature="e#1309#1310#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DictService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-              <folding>
-                <element signature="e#407#408#0" expanded="true" />
-                <element signature="e#454#455#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#983#984#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DictionaryController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DictionaryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5906433">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            <state vertical-scroll-proportion="-13.592592">
+              <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,13 +52,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IcibaFinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java">
+      <file leaf-file-name="DictResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.111111">
-              <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+              <folding>
+                <element signature="e#2095#2096#0" expanded="true" />
+                <element signature="e#2125#2126#0" expanded="true" />
+                <element signature="e#2178#2179#0" expanded="true" />
+                <element signature="e#2222#2223#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FindingHistory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/FindingHistory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,18 +87,89 @@
         <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+              <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/NodeDao.java">
+      <file leaf-file-name="IcibaFinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictDao.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47749197">
+              <caret line="124" column="11" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
+              <folding>
+                <marker date="1463143184000" expanded="true" signature="3380:3604" placeholder="select , , (..." />
+                <marker date="1463143184000" expanded="true" signature="3697:4149" placeholder="select , , ,..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4327" placeholder="select from ..dict_word_frequencies..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4335" placeholder="select from ..dict_finding..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4345" placeholder="select from ..dict_finding_histories..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4362" placeholder="select from ..dict_finding_histories..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4365" placeholder="select from ..dict_finding_histories..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4379" placeholder="select from ..dict_finding_histories..." />
+                <marker date="1463143184000" expanded="true" signature="4266:4399" placeholder="select from ..dict_finding_histories..." />
+                <marker date="1463143184000" expanded="true" signature="4521:4857" placeholder="select , fro..." />
+                <marker date="1463143184000" expanded="true" signature="4521:4912" placeholder="select , fro..." />
+                <marker date="1463143184000" expanded="true" signature="4984:5160" placeholder="insert into ..." />
+                <marker date="1463143184000" expanded="true" signature="5247:5409" placeholder="insert into ..." />
+                <marker date="1463143184000" expanded="true" signature="5486:5707" placeholder="insert into ..." />
+                <marker date="1463143184000" expanded="true" signature="5776:5950" placeholder="insert into ..." />
+                <marker date="1463143184000" expanded="true" signature="6034:6184" placeholder="insert into ..." />
+                <marker date="1463143184000" expanded="true" signature="6256:6455" placeholder="update dict_..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+              <folding>
+                <element signature="e#455#456#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#783#799#0" expanded="true" />
+                <element signature="e#1520#1521#0" expanded="true" />
+                <element signature="e#1561#1562#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PowerControlAspect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/powercontrol/PowerControlAspect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="38" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1758#1766#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/src/main/resources/mapper/common/UserDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <folding>
+                <marker date="1463140051000" expanded="true" signature="1098:1438" placeholder="SELECT , , F..." />
+                <marker date="1463140051000" expanded="true" signature="1500:1667" placeholder="INSERT INTO ..." />
+                <marker date="1463140051000" expanded="true" signature="1730:1819" placeholder="UPDATE pc_us..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -185,15 +204,20 @@
         <option value="$PROJECT_DIR$/tool/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/tool/src/main/java/in/yutou/site/tool/WordExplanation.java" />
         <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/WordFrequency.java" />
-        <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java" />
         <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java" />
         <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Explanation.java" />
         <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Example.java" />
         <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java" />
-        <option value="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml" />
-        <option value="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java" />
+        <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/domain/Node.java" />
+        <option value="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/NodeDao.xml" />
+        <option value="$PROJECT_DIR$/site/src/main/resources/mapper/common/UserDao.xml" />
+        <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/service/UserService.java" />
+        <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/FindingHistory.java" />
+        <option value="$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java" />
         <option value="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java" />
         <option value="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java" />
+        <option value="$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java" />
+        <option value="$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml" />
       </list>
     </option>
   </component>
@@ -217,9 +241,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="-1513" />
+    <option name="y" value="-91" />
     <option name="width" value="1440" />
-    <option name="height" value="823" />
+    <option name="height" value="1067" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -244,18 +269,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,6 +316,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,6 +414,82 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="powercontrol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -586,8 +683,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -604,6 +771,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="SearchEverywhereHistoryKey" value="IdGen&#9;PSI&#9;JAVA://in.yutou.idgenerator.IdGenerator" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -877,6 +1045,9 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Unknown" factoryName="Unknown">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -958,10 +1129,35 @@
       </MavenSettings>
       <method />
     </configuration>
-    <list size="3">
+    <configuration default="false" name="knowledge install" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="install" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/knowledge" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Maven.site install" />
       <item index="1" class="java.lang.String" itemvalue="Maven.common run" />
       <item index="2" class="java.lang.String" itemvalue="Maven.knowledge run" />
+      <item index="3" class="java.lang.String" itemvalue="Maven.knowledge install" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -977,32 +1173,48 @@
       <workItem from="1462765291294" duration="1495000" />
       <workItem from="1462767034147" duration="2176000" />
       <workItem from="1462773766149" duration="16385000" />
-      <workItem from="1462845887650" duration="3116000" />
+      <workItem from="1462845887650" duration="3991000" />
+      <workItem from="1463011452418" duration="927000" />
+      <workItem from="1463060904666" duration="175000" />
+      <workItem from="1463061751471" duration="292000" />
+      <workItem from="1463089439013" duration="4000" />
+      <workItem from="1463136342321" duration="6957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23172000" />
+    <option name="totallyTimeSpent" value="32402000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="0" />
+    <frame x="-1513" y="-91" width="1440" height="1067" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33707866" sideWeight="0.3681885" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2599179" sideWeight="0.6318115" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30706245" sideWeight="0.6318115" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285568" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18097281" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1013,7 +1225,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1028,7 +1239,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java</url>
+          <line>9</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1039,24 +1259,59 @@
     <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="67" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+          <caret line="77" column="88" selection-start-line="77" selection-start-column="88" selection-end-line="77" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462859723000" expanded="true" signature="1949:2229" placeholder="select , , (..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2439" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2473" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2510" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2637" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2647" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2721" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2878" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2950:3135" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3222:3261" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3222:3384" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3461:3682" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3751:3846" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3751:3925" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3997:4196" placeholder="update dict_..." />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/NodeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="67" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1074,18 +1329,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1093,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,7 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.023622047">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,7 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.40143737">
           <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,7 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,7 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,7 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,45 +1458,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/NodeDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3044693">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43103448">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-          <folding>
-            <element signature="e#1438#1439#0" expanded="false" />
-            <element signature="e#1484#1485#0" expanded="false" />
-            <element signature="e#1757#1758#0" expanded="false" />
-            <element signature="e#1785#1786#0" expanded="false" />
-            <element signature="e#1850#1851#0" expanded="false" />
-            <element signature="e#1890#1891#0" expanded="false" />
-            <element signature="e#1922#1923#0" expanded="false" />
-            <element signature="e#1948#1949#0" expanded="false" />
-            <element signature="e#1994#1995#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/Example.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#659#660#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1268,7 +1469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7017544">
           <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,40 +1476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.90643275">
           <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
-          <folding>
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.111111">
-          <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding>
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,60 +1483,196 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59574467">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/NodeDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.378641">
+          <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/domain/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75728154">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/javafx-src.zip!/com/sun/javafx/font/directwrite/IDWriteGlyphRunAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/in/yutou/id-generator/0.1.0/id-generator-0.1.0.jar!/in/yutou/idgenerator/IdGenerator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0882353">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/10bfdaf4-6f48-4d50-a7bb-9b74c08698ca/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/KnowledgeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/powercontrol/PowerControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/powercontrol/PowerControlAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="38" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1758#1766#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/resources/mapper/common/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <marker date="1463140051000" expanded="true" signature="1098:1438" placeholder="SELECT , , F..." />
+            <marker date="1463140051000" expanded="true" signature="1500:1667" placeholder="INSERT INTO ..." />
+            <marker date="1463140051000" expanded="true" signature="1730:1819" placeholder="UPDATE pc_us..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/KnowledgeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/common/auth/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43913713">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/IcibaFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/service/DictService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding>
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#783#799#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/dao/DictDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/FindingHistory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="88" selection-start-line="77" selection-start-column="88" selection-end-line="77" selection-end-column="88" />
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding>
-            <marker date="1462859723000" expanded="true" signature="1949:2229" placeholder="select , , (..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2439" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2473" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2510" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2637" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2647" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2721" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2322:2878" placeholder="select , g.g..." />
-            <marker date="1462859723000" expanded="true" signature="2950:3135" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3222:3261" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3222:3384" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3461:3682" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3751:3846" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3751:3925" placeholder="insert into ..." />
-            <marker date="1462859723000" expanded="true" signature="3997:4196" placeholder="update dict_..." />
+            <element signature="imports" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/ExplanationGroup.java">
+    <entry file="file://$PROJECT_DIR$/site/src/main/java/in/yutou/site/knowledge/dict/domain/DictResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
           <folding>
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2125#2126#0" expanded="true" />
+            <element signature="e#2178#2179#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/knowledge/src/main/java/in/yutou/site/knowledge/controller/DictionaryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5906433">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state vertical-scroll-proportion="-13.592592">
+          <caret line="48" column="70" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knowledge/src/main/resources/mapper/knowledge/DictDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47749197">
+          <caret line="124" column="11" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
+          <folding>
+            <marker date="1463143184000" expanded="true" signature="3380:3604" placeholder="select , , (..." />
+            <marker date="1463143184000" expanded="true" signature="3697:4149" placeholder="select , , ,..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4327" placeholder="select from ..dict_word_frequencies..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4335" placeholder="select from ..dict_finding..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4345" placeholder="select from ..dict_finding_histories..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4362" placeholder="select from ..dict_finding_histories..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4365" placeholder="select from ..dict_finding_histories..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4379" placeholder="select from ..dict_finding_histories..." />
+            <marker date="1463143184000" expanded="true" signature="4266:4399" placeholder="select from ..dict_finding_histories..." />
+            <marker date="1463143184000" expanded="true" signature="4521:4857" placeholder="select , fro..." />
+            <marker date="1463143184000" expanded="true" signature="4521:4912" placeholder="select , fro..." />
+            <marker date="1463143184000" expanded="true" signature="4984:5160" placeholder="insert into ..." />
+            <marker date="1463143184000" expanded="true" signature="5247:5409" placeholder="insert into ..." />
+            <marker date="1463143184000" expanded="true" signature="5486:5707" placeholder="insert into ..." />
+            <marker date="1463143184000" expanded="true" signature="5776:5950" placeholder="insert into ..." />
+            <marker date="1463143184000" expanded="true" signature="6034:6184" placeholder="insert into ..." />
+            <marker date="1463143184000" expanded="true" signature="6256:6455" placeholder="update dict_..." />
           </folding>
         </state>
       </provider>
@@ -1429,7 +1731,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>tool</last-edited>
+          <last-edited>common</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

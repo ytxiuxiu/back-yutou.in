@@ -24,7 +24,12 @@ public class UserService {
   }
   
   public User getUserByLoginToken(String loginToken) {
-    User _user = null;
+    loginToken = loginToken.replace(" ", "+");  // if it is GET, "+" may become " "
+    User _user;
+    if (loginToken.equals("no-login")) {
+      throw new BusinessException("user is not logged in");
+    }
+
     try {
       _user = aes.decryptAuthInfo(loginToken);
     } catch (Exception e) {

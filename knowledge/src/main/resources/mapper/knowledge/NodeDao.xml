@@ -17,7 +17,8 @@
     <result column="deleted" property="deleted"/>
     <association property="node" javaType="node">
       <id column="node_id" property="nodeId"/>
-      <id column="node_type" property="nodeType"/>
+      <result column="node_type" property="nodeType"/>
+      <result column="first_created_at" property="createdAt"/>
     </association>
     <association property="user" javaType="user">
       <id column="user_id" property="userId"/>
@@ -33,6 +34,7 @@
   <resultMap id="nodeResultMap" type="node">
     <id column="node_id" property="nodeId"/>
     <result column="current_edition"/>
+    <result column="first_created_at" property="createdAt"/>
     <association property="currentEdition" javaType="edition">
       <id column="edition_id" property="editionId"/>
       <result column="save_id" property="saveId"/>
@@ -46,7 +48,8 @@
       <result column="deleted" property="deleted"/>
       <association property="node" javaType="node">
         <id column="node_id" property="nodeId"/>
-        <id column="node_type" property="nodeType"/>
+        <result column="node_type" property="nodeType"/>
+        <result column="first_created_at" property="createdAt"/>
       </association>
       <association property="user" javaType="user">
         <id column="user_id" property="userId"/>
@@ -62,7 +65,8 @@
   
   <select id="getNodeById" parameterType="string" resultMap="nodeResultMap">
     select <include refid="nodeColumns"></include>,
-      <include refid="editionColumns"></include>
+      <include refid="editionColumns"></include>,
+      (select min(se.created_at) from kno_node_editions se where se.node_id = n.node_id) as first_created_at
     from kno_nodes n
       left join kno_node_editions e on (e.edition_id = n.current_edition)
     where n.node_id = #{nodeId}
@@ -71,7 +75,8 @@
   <select id="selectLatestEditionsOfChildrenNodesByPath" parameterType="map" resultMap="basicResultMap">
     select <include refid="editionColumns"></include>, 
       <include refid="nodeColumns"></include>,
-      <include refid="userColumns"></include>
+      <include refid="userColumns"></include>,
+      (select min(se.created_at) from kno_node_editions se where se.node_id = n.node_id) as first_created_at
     from kno_node_editions e
       inner join kno_nodes n on (n.current_edition = e.edition_id)
       inner join pc_users u on (u.user_id = e.user_id)
@@ -84,7 +89,8 @@
   <select id="getCurrentEditionByNodeId" parameterType="string" resultMap="basicResultMap">
     select <include refid="editionColumns"></include>, 
       <include refid="nodeColumns"></include>,
-      <include refid="userColumns"></include>
+      <include refid="userColumns"></include>,
+      (select min(se.created_at) from kno_node_editions se where se.node_id = n.node_id) as first_created_at
     from kno_node_editions e
       inner join kno_nodes n on (n.current_edition = e.edition_id)
       inner join pc_users u on (u.user_id = e.user_id)
@@ -95,7 +101,8 @@
   <select id="getEditionById" parameterType="string" resultMap="basicResultMap">
     select <include refid="editionColumns"></include>, 
       <include refid="nodeColumns"></include>,
-      <include refid="userColumns"></include>
+      <include refid="userColumns"></include>,
+      (select min(se.created_at) from kno_node_editions se where se.node_id = n.node_id) as first_created_at
     from kno_node_editions e
       inner join kno_nodes n on (n.current_edition = e.edition_id)
       inner join pc_users u on (u.user_id = e.user_id)

@@ -23,7 +23,9 @@
   </resultMap>
 
   <select id="getUserById" parameterType="string" resultMap="basicResultMap">
-    SELECT <include refid="userColumns"/>, <include refid="groupColumns"/>, <include refid="actionColumns"></include>
+    SELECT <include refid="userColumns"/>,
+      <include refid="groupColumns"/>,
+      <include refid="actionColumns"/>
     FROM pc_users u
     INNER JOIN pc_groups g ON g.group_id = u.group_id
     LEFT JOIN pc_group_action ga ON ga.group_id = u.group_id

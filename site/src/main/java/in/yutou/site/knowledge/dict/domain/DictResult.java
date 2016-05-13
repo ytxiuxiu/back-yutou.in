@@ -24,6 +24,8 @@ public class DictResult {
 
   private Date fetchedAt;
 
+  private int searchedTimes;
+
   
   public DictResult() {
     explanationGroups = new ArrayList<ExplanationGroup>();
@@ -100,6 +102,14 @@ public class DictResult {
 
   public void setFetchedAt(Date fetchedAt) {
     this.fetchedAt = fetchedAt;
+  }
+
+  public int getSearchedTimes() {
+    return searchedTimes;
+  }
+
+  public void setSearchedTimes(int searchedTimes) {
+    this.searchedTimes = searchedTimes;
   }
 
   @Override

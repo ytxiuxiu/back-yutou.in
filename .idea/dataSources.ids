@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - site@localhost" uuid="10bfdaf4-6f48-4d50-a7bb-9b74c08698ca">
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="site"/>
+    <table name="dict_word_examples" schema="" catalog="site" type="TABLE">
+      <column name="example_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="explanation_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="english" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="chinese" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="audio" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="example_id"/>
+      <foreign-key name="dict_word_examples_ibfk_1" columns="explanation_id" ref-table="dict_word_explanations" ref-schema="" ref-catalog="site" ref-columns="explanation_id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="dict_word_explanation_groups" schema="" catalog="site" type="TABLE">
+      <column name="group_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="word_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="group_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="J2RlZmF1bHQn"/>
+      <column name="group_name_ch" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="J+m7mOiupCc="/>
+      <primary-key name="PRIMARY" columns="group_id"/>
+    </table>
+    <table name="dict_word_explanations" schema="" catalog="site" type="TABLE">
+      <column name="explanation_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="group_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="part_of_speech" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="explanation" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="explanation_ch" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="explanation_id"/>
+      <exported-key name="dict_word_examples_ibfk_1" table="dict_word_examples" schema="" catalog="site" columns="explanation_id"/>
+    </table>
+    <table name="dict_word_frequencies" schema="" catalog="site" type="TABLE">
+      <column name="frequency_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="word_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="part_of_speech" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="word_rank" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="frequency_id"/>
+      <foreign-key name="fk_frequency_word" columns="word_id" ref-table="dict_words" ref-schema="" ref-catalog="site" ref-columns="word_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="unique_word_part" unique="true" columns="word_id,part_of_speech"/>
+    </table>
+    <table name="dict_words" schema="" catalog="site" type="TABLE">
+      <column name="word_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="word" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="audio_uk" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="symbol_uk" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="audio_us" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="symbol_us" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="fetched_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="word_id"/>
+      <exported-key name="fk_frequency_word" table="dict_word_frequencies" schema="" catalog="site" columns="word_id"/>
+      <index name="unique_word" unique="true" columns="word"/>
+    </table>
+    <table name="dict_words_copy" schema="" catalog="site" type="TABLE">
+      <column name="word_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="word" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="audio_uk" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="symbol_uk" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="audio_us" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="symbol_us" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="fetched" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7" def="YicwJw=="/>
+      <primary-key name="PRIMARY" columns="word_id"/>
+      <index name="unique_word" unique="true" columns="word"/>
+    </table>
+    <table name="kno_node_editions" schema="" catalog="site" type="TABLE">
+      <column name="edition_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="node_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="save_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="user_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="path" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="small" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" def="J25vcm1hbCc="/>
+      <column name="priority" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="NA=="/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="deleted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <primary-key name="PRIMARY" columns="edition_id"/>
+      <foreign-key name="fk_e_node_id" columns="node_id" ref-table="kno_nodes" ref-schema="" ref-catalog="site" ref-columns="node_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_e_user_id" columns="user_id" ref-table="pc_users" ref-schema="" ref-catalog="site" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_n_current_edition" table="kno_nodes" schema="" catalog="site" columns="current_edition"/>
+      <index name="fk_node_id" unique="false" columns="node_id"/>
+      <index name="fk_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="kno_node_editions_backup_04_13_13_45" schema="" catalog="site" type="TABLE">
+      <column name="edition_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="node_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="save_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="user_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="path" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="small" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="deleted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+    </table>
+    <table name="kno_node_views" schema="" catalog="site" type="TABLE">
+      <column name="view_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="view_user" sqlType="CHAR" precision="32" scale="0" nullable="true" jdbcType="1"/>
+      <column name="view_node" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="view_ip" sqlType="CHAR" precision="39" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="viewed_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="view_id"/>
+      <foreign-key name="kno_node_views_ibfk_1" columns="view_user" ref-table="pc_users" ref-schema="" ref-catalog="site" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="kno_nodes" schema="" catalog="site" type="TABLE">
+      <column name="node_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="current_edition" sqlType="CHAR" precision="32" scale="0" nullable="true" jdbcType="1"/>
+      <column name="node_type" sqlType="VARCHAR" precision="7" scale="0" nullable="false" jdbcType="12" def="J25vZGUn"/>
+      <column name="created_at" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="node_id"/>
+      <foreign-key name="fk_n_current_edition" columns="current_edition" ref-table="kno_node_editions" ref-schema="" ref-catalog="site" ref-columns="edition_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_e_node_id" table="kno_node_editions" schema="" catalog="site" columns="node_id"/>
+      <index name="fk_current_edition" unique="false" columns="current_edition"/>
+    </table>
+    <table name="kno_nodes_backup_04_13_13_45" schema="" catalog="site" type="TABLE">
+      <column name="node_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="current_edition" sqlType="CHAR" precision="32" scale="0" nullable="true" jdbcType="1"/>
+      <column name="node_type" sqlType="VARCHAR" precision="7" scale="0" nullable="false" jdbcType="12" def="J25vZGUn"/>
+    </table>
+    <table name="pc_action_categories" schema="" catalog="site" type="TABLE">
+      <column name="category_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="category_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="category_description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="deleted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <primary-key name="PRIMARY" columns="category_id"/>
+      <exported-key name="fk_a_category_id" table="pc_actions" schema="" catalog="site" columns="category_id"/>
+    </table>
+    <table name="pc_actions" schema="" catalog="site" type="TABLE">
+      <column name="action_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="action_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="category_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="deleted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <column name="action_description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="action_id"/>
+      <foreign-key name="fk_a_category_id" columns="category_id" ref-table="pc_action_categories" ref-schema="" ref-catalog="site" ref-columns="category_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_ga_action_id" table="pc_group_action" schema="" catalog="site" columns="action_id"/>
+      <index name="fk_category_id" unique="false" columns="category_id"/>
+    </table>
+    <table name="pc_group_action" schema="" catalog="site" type="TABLE">
+      <column name="group_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="action_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="group_id,action_id"/>
+      <foreign-key name="fk_ga_action_id" columns="action_id" ref-table="pc_actions" ref-schema="" ref-catalog="site" ref-columns="action_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ga_group_id" columns="group_id" ref-table="pc_groups" ref-schema="" ref-catalog="site" ref-columns="group_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_action_id" unique="false" columns="action_id"/>
+    </table>
+    <table name="pc_groups" schema="" catalog="site" type="TABLE">
+      <column name="group_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="group_name" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="deleted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <primary-key name="PRIMARY" columns="group_id"/>
+      <exported-key name="fk_ga_group_id" table="pc_group_action" schema="" catalog="site" columns="group_id"/>
+      <exported-key name="fk_u_group_id" table="pc_users" schema="" catalog="site" columns="group_id"/>
+    </table>
+    <table name="pc_users" schema="" catalog="site" type="TABLE">
+      <column name="user_id" sqlType="CHAR" precision="21" scale="0" nullable="false" jdbcType="1"/>
+      <column name="group_id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1" def="J2E5ZGRlNDllOWZlNTQwNzJhYWVkODdlZTg0YWU0MjdlJw=="/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="family_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="given_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="picture_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="registered_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="last_loged_in_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <foreign-key name="fk_u_group_id" columns="group_id" ref-table="pc_groups" ref-schema="" ref-catalog="site" ref-columns="group_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_e_user_id" table="kno_node_editions" schema="" catalog="site" columns="user_id"/>
+      <exported-key name="kno_node_views_ibfk_1" table="kno_node_views" schema="" catalog="site" columns="view_user"/>
+      <index name="uni_email" unique="true" columns="email"/>
+      <index name="fk_u_group_id" unique="false" columns="group_id"/>
+    </table>
+    <table name="site_status" schema="" catalog="site" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="value" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
+  </data-source>
+</component>

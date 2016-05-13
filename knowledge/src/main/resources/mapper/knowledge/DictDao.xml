@@ -14,6 +14,7 @@
   <resultMap id="basicResultMap" type="dictResult">
     <id column="word_id" property="wordId"/>
     <result column="word" property="keyword"/>
+    <result column="searched_times" property="searchedTimes"/>
     <result column="audio_uk" property="audioBritish"/>
     <result column="symbol_uk" property="symbolBritish"/>
     <result column="audio_us" property="audioAmerican"/>
@@ -37,10 +38,38 @@
       </collection>
     </collection>
   </resultMap>
+
+  <resultMap id="historyResultMap" type="findingHistory">
+    <id column="history_id" property="historyId"/>
+    <result column="searched_at" property="searchedAt"/>
+  </resultMap>
+
+  <resultMap id="historyListResultMap" type="findingHistory">
+    <id column="history_id" property="historyId"/>
+    <result column="searched_at" property="searchedAt"/>
+    <association property="word" javaType="dictResult">
+      <id column="word_id" property="wordId"/>
+      <result column="word" property="keyword"/>
+      <result column="searched_times" property="searchedTimes"/>
+      <result column="audio_uk" property="audioBritish"/>
+      <result column="symbol_uk" property="symbolBritish"/>
+      <result column="audio_us" property="audioAmerican"/>
+      <result column="symbol_us" property="symbolAmerican"/>
+      <result column="fetched_at" property="fetchedAt"/>
+    </association>
+    <association property="user" javaType="user">
+      <id column="user_id" property="userId"/>
+      <result column="email" property="email"/>
+      <result column="family_name" property="familyName"/>
+      <result column="given_name" property="givenName"/>
+      <result column="picture_url" property="pictureUrl"/>
+      <result column="registered_at" property="registeredAt"/>
+      <result column="last_loged_in_at" property="lastLogedInAt"/>
+    </association>
+  </resultMap>
   
   <select id="getFrequenciesByWord" parameterType="string" resultMap="frequencyResultMap">
-    select <include refid="wordColumns"></include>,
-      <include refid="wordFrequencyColumns"></include>,
+    select <include refid="wordFrequencyColumns"/>,
       (select count(*) from dict_word_frequencies) as total
     from dict_words w
       inner join dict_word_frequencies f on (f.word_id = w.word_id)
@@ -48,10 +77,10 @@
   </select>
 
   <select id="findWord" parameterType="string" resultMap="basicResultMap">
-    select <include refid="wordColumns"></include>,
-      g.group_id, g.word_id, g.group_name, g.group_name_ch,
-      exp.explanation_id, exp.group_id, exp.part_of_speech, exp.explanation, exp.explanation_ch,
-      eg.example_id, eg.explanation_id, eg.english, eg.chinese, eg.audio
+    select <include refid="wordColumns"/>,
+      <include refid="explanationGroupColumns"/>,
+      <include refid="explanationColumns"/>,
+      <include refid="exampleColumns"/>
     from dict_words w
       left join dict_word_explanation_groups g on (g.word_id = w.word_id)
       left join dict_word_explanations exp on (exp.group_id = g.group_id)
@@ -59,8 +88,24 @@
     where w.word = #{word}
   </select>
 
+  <select id="getSearchingHistoryOfAWordOfAUser" parameterType="map" resultMap="historyResultMap">
+    select <include refid="findingHistoryColumns"/>
+    from dict_finding_histories
+    where user_id = #{userId} and word_id = ${wordId}
+  </select>
+
+  <select id="listAllFindingHistoriesByUserId" parameterType="string" resultMap="historyListResultMap">
+    select distinct <include refid="findingHistoryColumnsWithAlias"/>,
+      <include refid="wordColumns"/>,
+      (select count(sh.history_id) from dict_finding_histories sh where sh.user_id = h.user_id and sh.word_id = h.word_id) as searched_times
+    from dict_finding_histories h
+      inner join dict_words w on (w.word_id = h.word_id)
+    where user_id = #{userId}
+    order by searched_at
+  </select>
+
   <insert id="addNewWord" parameterType="dictResult">
-    insert into dict_words (<include refid="basicColumns"></include>)
+    insert into dict_words (<include refid="basicColumns"/>)
     values (#{wordId}, #{keyword}, #{audioBritish}, #{symbolBritish}, #{audioAmerican}, #{symbolAmerican}, now(), null)
   </insert>
 
@@ -79,6 +124,11 @@
     values (#{exampleId}, #{explanation.explanationId}, #{english}, #{chinese}, #{audio})
   </insert>
 
+  <insert id="addAFindingHistory" parameterType="findingHistory">
+    insert into dict_finding_histories (<include refid="findingHistoryColumns"/>)
+    values (#{historyId}, #{user.userId}, #{word.wordId}, #{searchedAt})
+  </insert>
+
   <update id="updateWord" parameterType="dictResult">
     update dict_words
     set audio_uk = #{audioBritish}, symbol_uk = #{symbolBritish}, audio_us = #{audioAmerican}, symbol_us = #{symbolAmerican}, fetched_at = #{fetchedAt}
@@ -94,4 +144,20 @@
   <sql id="wordFrequencyColumns">
     f.frequency_id, f.word_id, f.part_of_speech, f.word_rank
   </sql>
+  <sql id="findingHistoryColumns">
+    history_id, user_id, word_id, searched_at
+  </sql>
+  <sql id="findingHistoryColumnsWithAlias">
+    h.history_id, h.user_id, h.word_id, h.searched_at
+  </sql>
+  <sql id="explanationGroupColumns">
+    g.group_id, g.word_id, g.group_name, g.group_name_ch
+  </sql>
+  <sql id="explanationColumns">
+    exp.explanation_id, exp.group_id, exp.part_of_speech, exp.explanation, exp.explanation_ch
+  </sql>
+  <sql id="exampleColumns">
+    eg.example_id, eg.explanation_id, eg.english, eg.chinese, eg.audio
+  </sql>
+
 </mapper>
